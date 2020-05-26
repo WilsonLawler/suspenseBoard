@@ -7,6 +7,7 @@ const TicketWrapper = styled.div`
  border-radius: 20px;
  &:not(:last-child) {
  margin-bottom: 5%;
+ margin-right: ${props => props.marginRight ? '1%' : '0'};
  }
 `;
 const Title = styled.h3`
@@ -17,7 +18,7 @@ const Body = styled.p`
  width: 100%;
 `;
 const Ticket = ({ ticket }) => (
- <TicketWrapper>
+ <TicketWrapper marginRight >
  <Title>{ticket.title}</Title>
  <Body>{ticket.body}</Body>
  </TicketWrapper>

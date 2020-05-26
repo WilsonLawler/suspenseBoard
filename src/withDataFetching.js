@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default function withDataFetching(wrappedComponent) {
-    return class extends React.Component {
+export default function withDataFetching(WrappedComponent) {
+    class WithDataFetching extends React.Component {
         state = {
             data: [],
             loading: true,
@@ -31,7 +31,7 @@ export default function withDataFetching(wrappedComponent) {
             const { data, loading, error } = this.state;
 
             return (
-                <wrappedComponent 
+                <WrappedComponent 
                     data={data}
                     loading={loading}
                     error={error}
@@ -40,4 +40,7 @@ export default function withDataFetching(wrappedComponent) {
             );
         }
     };
+
+    WithDataFetching.displayName = `WithDataFetching(${WrappedComponent.name})`;
+    return WithDataFetching;
 }
